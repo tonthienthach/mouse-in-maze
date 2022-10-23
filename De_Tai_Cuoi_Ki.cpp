@@ -10,8 +10,10 @@
 
 using namespace std;
 // Maze size
-#define N 5
-
+#define N 8
+// cho kich thuoc la 8
+int startx, starty;
+int goalx, goaly;
 int sol[N][N];
 
 bool solveMazeUtil(int maze[N][N], int x, int y, int sol[N][N]);
@@ -81,7 +83,7 @@ bool solveMaze(int maze[N][N])
 					  { 0, 0, 0, 0, 0 },
 					  { 0, 0, 0, 0, 0 } };*/
 	
-	if (solveMazeUtil(maze, 0, 0, sol) == false) {
+	if (solveMazeUtil(maze, startx, starty, sol) == false) {
 		cout << "Solution doesn't exist";
 		return false;
 	}
@@ -89,12 +91,34 @@ bool solveMaze(int maze[N][N])
 	printSolution(solu);
 	return true;
 }
-
+bool checkstart(int x, int y, int maze[N][N]) {
+	if ((x >= 0 && x <= N - 1) && (y >= 0 && y <= N - 1)) {
+		cout << "Start hop le" << endl;
+		return true;
+	}
+	else
+	{
+		cout << "Start khong hop le" << endl;
+		return false;
+	}
+}
+bool checkgoal(int x, int y, int maze[N][N])
+{
+	if ((x >= 0 && x <= N - 1) && (y >= 0 && y <= N - 1)) {
+		cout << "Goal hop le" << endl;
+		return true;
+	}
+	else
+	{
+		cout << "Goal khong hop le" << endl;
+		return false;
+	}
+}
 // A recursive utility function to solve Maze problem
 bool solveMazeUtil(int maze[N][N], int x, int y, int sol[N][N])
 {
 	// if (x, y is goal) return true
-	if (x == N - 1 && y == N - 1 && maze[x][y] == 1) {
+	if (x == goalx && y == goaly && maze[x][y] == 1) {
 		sol[x][y] = 1;
 		return true;
 	}
@@ -128,11 +152,20 @@ bool solveMazeUtil(int maze[N][N], int x, int y, int sol[N][N])
 // driver program to test above function
 int main()
 {
-	int maze[N][N] = { { 1, 1, 0, 0, 0 },
-					{ 0, 1, 0, 1, 0 },
-					{ 1, 1, 1, 0 , 0},
-					{ 1, 0, 0, 1 , 0}, 
-					{ 1, 1, 1, 1, 1} };
+	cout << "Nhap startx "; cin >> startx; cout << "Nhap starty "; cin >> starty;
+	cout << "Nhap goalx "; cin >> goalx; cout << "Nhap goaly "; cin >> goaly;
+	cout << "Start co x, y la " << startx << " " << starty << endl;
+	cout << "Goal co x, y la " << goalx << " " << goaly << endl;
+	int maze[N][N] = {{ 1, 1, 1, 1, 0, 1, 1 , 1 },
+					  { 1, 0, 1, 1 ,0, 0, 0 , 1 },
+					  { 1, 0, 1, 1 ,0, 1, 0 , 1 },
+					  { 1, 0, 1, 1 ,0, 1, 1 , 1 },
+					  { 1, 0, 1, 1 ,0, 1, 0 , 1 },
+					  { 1, 1, 0, 1 ,0, 1, 0 , 1 },
+					  { 1, 0, 1, 1 ,0, 1, 0 , 1 },
+					  { 0, 0, 0, 1 ,1, 1, 0 , 1 }};
+	checkstart(startx, starty, maze);
+	checkgoal(goalx, goaly, maze);
 	clock_t start, end;
 	start = clock();
 	solveMaze(maze);
