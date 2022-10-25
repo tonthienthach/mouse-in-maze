@@ -1,2 +1,6 @@
 ﻿  De_Tai_Cuoi_Ki.cpp
+<<<<<<< HEAD
 LINK : fatal error LNK1104: cannot open file 'glut32.lib'
+=======
+  De_Tai_Cuoi_Ki.vcxproj -> D:\CTDLGT\Backtracking-Matris\Backtracking-Matris\mouse-in-maze\x64\Debug\De_Tai_Cuoi_Ki.exe
+>>>>>>> 70e5a8f4b7aa19138a44ba8d8505695dc814060b

@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.26.28801:TargetPlatformVersion=10.0.18362.0:
 Debug|x64|D:\HK1-2022-2023\CTDL&GT\De_Tai_Cuoi_Ki\|
+=======
+PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.29.30133:TargetPlatformVersion=10.0.19041.0:
+Debug|x64|D:\CTDLGT\Backtracking-Matris\Backtracking-Matris\mouse-in-maze\|
+>>>>>>> 70e5a8f4b7aa19138a44ba8d8505695dc814060b
